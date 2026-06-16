@@ -9,10 +9,11 @@ info = {
     "age": 22,
     "subjects": ["Python", "CPP", "JAVA"]
 }
-info["age"] += 1  # mutable
-print(info["age"])
-info["subjects"].append("SQL")
-print(info["subjects"])
+# info["age"] += 1  # mutable
+# print(info["age"])
+# info["subjects"].append("SQL")
+# print(info["subjects"])
+# print(type(info["subjects"]))
 
 # Nested Dictionary
 student = {
@@ -37,6 +38,13 @@ student = {
 # print(type(student.items()))
 # items = list(student.items())
 # print(type(items[0])) # tuple
+
+print("Keys: ",list(info.keys()))  # returns collection of keys
+print("Values: ", list(info.values()))  # returns collection of values
+print("Items: ", list(info.items())) # returns collection of tuples or dictionary_items
+print(type(info.items()))
+items = list(info.items())
+print(type(items[0])) # tuple
 
 # print(student["name"]) # returns value of the key, if key not fouond it returns error
 # print(student.get("name")) # returns value of the key, if key not found it returns none
