@@ -12,10 +12,11 @@ while(count < 5):
 """
 # Search for a number x in list using loop
 list1 = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-target = 101
-i = 0
-# while(i < len(list1)):
-#     if(list1[i] == target):
+target = 100
+
+# i = 0
+# while i < len(list1):
+#     if list1[i] == target:
 #         print(target, "Found")
 #         break
 #     i += 1
@@ -25,7 +26,7 @@ i = 0
 
 # These usually used inside some condition
 # break: used to terminate the loop when encountered
-# continue: Skips the current iteration and continues execution of the loop with the next iteration
+# continue: Skips the current iteration and continues the execution from next iteration
 
 # for loop:
 # Syntax -> for element in list:
