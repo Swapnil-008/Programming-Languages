@@ -42,6 +42,7 @@ print(movies)
 
 # Palindrome or Not
 """
+# Using list methods
 list1 = [10, 20, 30, 20, 10]
 list2 = list1.copy()
 list2.reverse()
@@ -49,4 +50,19 @@ if(list1 == list2):
     print(list1, "is palindrome")
 else:
     print(list1, "is not palindrome")
+"""
+
+"""
+# Using loop
+i = 0
+j = len(list1) - 1
+
+while i < j:
+    if list1[i] != list1[j]:
+        print("It is not a palindrome!")
+    i = i + 1
+    j = j - 1
+
+if(i <= j):
+    print("It is a palindrome")
 """
