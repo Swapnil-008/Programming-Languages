@@ -37,8 +37,13 @@ print(set1)
 print(len(set1))
 
 set2 = set()
-set2.add(int(9))
-set2.add(float(9.0))
+# set2.add(int(9))
+# set2.add(str('9.0'))
+# Store values with their datatypes as a tuple
+set2 = {
+    ("int", 9),
+    ("float", 9.0)
+}
 print(set2)
 
 # List = [], Tuple = (), Dictionary = {}
