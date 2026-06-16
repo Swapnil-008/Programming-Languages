@@ -59,3 +59,13 @@ dict1 = {
     "table": ["a piece of furniture", "list of facts & figures"],
     "cat": "a small animal"
 }
+
+i = 0
+student_marks = {}
+while i < 3:
+    subject = str(input("Enter subject: "))
+    marks = int(input("Enter marks: "))
+    student_marks[subject] = marks
+    i = i + 1
+
+print(student_marks)
