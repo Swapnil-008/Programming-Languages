@@ -8,24 +8,29 @@ print(type(marks))
 
 # Python supports to store different types of data inside a single list
 student = ["Swap", 22, 62.5, "DeMahi"]
-# print(student)
+student[2] = 60
+print(student)
+print(type(student))
 
 # List slicing is same as String Slicing
 
 # List methods:
-# Changes made my list methods reflects to original list
-
+# Changes made my list method reflects to original list
+# These methods doesn't return anything just make changes in the original list
 marks.append(28)  # adds element at the end
 # print(marks)
 
 marks.sort()  # sorts in ascending order
 marks.sort(reverse=True)  # sorts in descending order
 marks.reverse()  # reverses the list
-marks.insert(2, 100)  # elements in right from mentioned index moves right by one place and given index places at specified index
+marks.insert(2, 100)  # elements from the mentioned index moves right side by one place, and given element get placed at mentioned index
 print(marks)
 marks.remove(100)  # removes first occurence of element 
 marks.pop(4)  # removes element present at given index
 print(marks)
+marks2 = marks.copy()
+print(marks2)
+print(type(marks2))
 
 """
 movies = []
