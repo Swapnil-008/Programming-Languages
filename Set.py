@@ -1,0 +1,31 @@
+# Set:
+# Set is mutable
+# Set is the collection of unordered items
+# Each item in the set must be unique and immutable (int, float, boolean, str, tuple)
+
+collection = {1, 2, 5, 10, 5, "hello"}
+print(collection)  # it ignores duplicates, and keep it only once
+
+emptySet = set() # empty set syntax
+
+# Set methods:
+collection.add(15)  # adds element
+collection.remove(10)  # removes element, generates error if specified element not found
+collection.add((1, 2, 5))
+print(collection)
+# collection.add([10, 15])  # genarates error as we are inserting list in set
+
+# collection.clear()  # It makes empty to set
+
+collection2 = {5, 10, 1, 2, 3, 18}
+print(collection.union(collection2))  # combines both set values and returns new set
+print(collection.intersection(collection2))  # combines common values and returns new 
+
+set1 = {"python", "java", "C++", "python", "javascript", "java", "python", "java", "C++", "C"}
+print(set1)
+print(len(set1))
+
+set2 = set()
+set2.add(int(9))
+set2.add(float(9.0))
+print(set2)
