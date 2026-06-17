@@ -66,3 +66,21 @@ while i < j:
 if(i <= j):
     print("It is a palindrome")
 """
+
+n = 5
+m = 4
+
+# Size n
+dp = [0] * n
+
+# Size n+1
+dp = [0] * (n + 1)
+
+# Initialize with infinity
+dp = [float('inf')] * n
+
+# Initialize with -1
+dp = [-1] * n
+
+# 2D DP
+dp = [[0] * m for _ in range(n)]
