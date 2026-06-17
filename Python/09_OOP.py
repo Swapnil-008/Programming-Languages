@@ -1,5 +1,5 @@
 # Object Oriented Programming (OOP):
-#OOP is a programming paradigm where we design programs using classes and objects, combining data and behavior into a single unit to model real-world entities.
+# OOP is a programming paradigm where we design programs using classes and objects, combining data and behavior into a single unit to model real-world entities.
 
 # Class and object
 # Class is a blueprint for creating objects
@@ -7,19 +7,22 @@
 # Creating class
 # class Student:
 #     name = "Swap"
+
 # # Creating object
 # s1 = Student()
+
 # print(s1.name)
 
 # __init__ function or constructor:
-# All classes hava a function called __init__(), which is always executed when the class is being initiated
+# All classes hava a function called __init__(), which is always executed when the object is being initiated
 # Constructor always has one fixed parameter called self
 # The self parameter is a reference to the current instance of the class, and is used to access variables that belongs to the class
 # Parameters passed while creating an object are the attributes of an entity, except self
-# If we didn't define any constructor for our class still it has a default constructor provided by python
+# If we didn't define any constructor for our class still it contains a default constructor provided by python
 # If we defined the parameterized constructor for our class then python doesn't provide default constructor, so if our class requires default constructor we have to define it by ourself
 """
 class Student:
+    # Default constructor
     def __init__(self):
         pass
     # Parameterized constructor
@@ -34,11 +37,11 @@ print(type(s1.age))
 print(type(s1.rollNo))
 """
 
-# class and instance attributes 
+# Class and Instance attributes 
 
-# instance attributes -> These attributes are different for every object
+# Instance attributes -> These attributes are different for every object
 # accessed by ObjectName.attributeName
-# class attributes -> These attributes are same for complete class, and only one copy of each attribute is created for complete class
+# Class attributes -> These attributes are same for complete class, and only one copy of each attribute is created for complete class
 # accessed by ClassName.attributeName
 """
 class Student:
@@ -54,7 +57,7 @@ print(S1.name)   # accessing instance attribute
 """
 
 # Methods
-# Methods are functions belong to objects
+# Methods are functions that belong to objects
 
 """
 class Student:
@@ -103,6 +106,8 @@ print(S1.getSubjectsAvg())
 
 # Static methods
 # Methods that don't use self parameter and works for entire class, and not for any specific object
+
+# Decorator allow us to wrap a function in order to extend the behaviour of the wrapped function, without permaently modifying it
 """
 class Student:
     @staticmethod  # Decorator
@@ -144,6 +149,30 @@ class Car:
         return self.__speed
     
 # User cannot directly do: car.__speed = 1000 
+
+"""
+class Account:
+    def __init__(self, balance, account_no):
+        self.__balance = balance
+        self.__account_no = account_no
+
+    def credit(self, amount):
+        self.__balance += amount
+        print("Rs.", amount, "credited!")
+
+    def debit(self, amount):
+        self.__balance -= amount
+        print("Rs.", amount, "debited!")
+
+    def print_balance(self):
+        print("Available balance: Rs.", self.__balance, sep="")
+
+account = Account(1000, 1108)
+account.credit(500)
+account.print_balance()
+account.debit(845)
+account.print_balance()
+"""
 
 # del keyword:
 # It is used to delete object properties or object itself
@@ -288,8 +317,6 @@ class ComplexNumber:
         newImaginary = self.imaginary - num2.imaginary
         return ComplexNumber(newReal, newImaginary)
 
-
-
 num1 = ComplexNumber(4, 6)
 num1.showNumber()
 num2 = ComplexNumber(2, 3)
@@ -299,10 +326,10 @@ num2.showNumber()
 # num3 = num1.add(num2)
 # num3.showNumber()
 
-# But if we want to perform the addition of two complex numbers using just '+' operator then we have to overload that operator for ComplexNumber class, overloading an operator means writing a dunder function for it
+# But if we want to perform the addition of two complex numbers using just '+' operator then we have to overload that operator for ComplexNumber class, because arithmatetic operations can be performed with primitive datatypes only but objects are user defined datatypes, overloading an operator means writing a dunder function for it
 # addition
-print("Addition: ", end="")
 num3 = num1 + num2
+print("Addition: ", end="")
 num3.showNumber()
 
 # subtraction
@@ -314,3 +341,65 @@ num3.showNumber()
 # Dunder function means overloading an operator to work with user defined datatypes like object of class ComplexNumber in this example
 
 # for addition obj1.__add__(obj2)
+
+# Practice questions:
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+    
+    def perimeter(self):
+        return 2 * 3.14 * self.radius
+    
+circle = Circle(10)
+print("Area of circle:", circle.area())
+print("Perimeter of circle:", circle.perimeter())
+
+class Employee:
+    def __init__(self, role, department, salary):
+        self.role = role
+        self.department = department
+        self.salary = salary
+
+    def showDetails(self):
+        print(" ----- Employee Details -----")
+        print("Role:", self.role)
+        print("Department:", self.department)
+        print("Salary:", self.salary)
+
+class Engineer(Employee):
+    def __init__(self, name, age, role, department, salary):
+        super().__init__(role, department, salary)
+        self.name = name
+        self.age = age
+
+    def showDetails(self): # Overriding parent method
+        super().showDetails()
+        print("Name:", self.name)
+        print("Age:", self.age)
+
+engineer = Engineer("Swapnil", "23", "Software Developer", "IT", 80000)
+engineer.showDetails()
+
+class Order:
+    def __init__(self, items):
+        self.items = items
+
+    def __gt__(self, other):
+        sum1 = 0
+        sum2 = 0
+        for price in self.items.values():
+            sum1 += price
+        for price in other.items.values():
+            sum2 += price
+        print("Price1:", sum1)
+        print("Price2:", sum2)
+        return sum1 > sum2
+    
+order1 = Order({"item1": 1000, "item2": 500, "item3": 985})
+order2 = Order({"item1": 1200, "item2": 400, "item3": 755})
+
+print(order1 > order2)
